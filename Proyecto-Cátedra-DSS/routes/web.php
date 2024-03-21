@@ -39,6 +39,13 @@ Route::get('/ingresodependiente', function () {
     return view('ingresodependiente');
 })->name('ingresodependiente');
 
+Route::get('/listadependiente', function () {
+    return view('listadependiente');
+})->name('listadependiente');
+
+Route::get('/formulariodependiente', function () {
+    return view('formulariodependiente');
+})->name('formulariodependiente');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
