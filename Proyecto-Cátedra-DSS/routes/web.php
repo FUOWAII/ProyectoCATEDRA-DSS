@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginEmployeesController;
 use App\Http\Controllers\ManageBranchOficceController;
 use Psy\TabCompletion\Matcher\FunctionsMatcher;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ use Psy\TabCompletion\Matcher\FunctionsMatcher;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 })->name('home');
 
@@ -33,6 +34,31 @@ Route::get('/employeedashboard', function () {
 Route::resource('/brainchoficcem', ManageBranchOficceController::class);
 
 Route::post('logoutemplouees', [LoginEmployeesController::class, 'logout'])->name('logoutemployees');
+
+Route::get('/creacioncuenta', function () {
+    return view('creacioncuenta');
+})->name('creacioncuenta');
+
+Route::get('/cuentabancaria', function () {
+    return view('cuentabancaria');
+})->name('cuentabancaria');
+
+
+Route::get('/transaccion', function () {
+    return view('transaccion');
+})->name('transaccion');
+
+Route::get('/ingresodependiente', function () {
+    return view('ingresodependiente');
+})->name('ingresodependiente');
+
+Route::get('/listadependiente', function () {
+    return view('listadependiente');
+})->name('listadependiente');
+
+Route::get('/formulariodependiente', function () {
+    return view('formulariodependiente');
+})->name('formulariodependiente');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
