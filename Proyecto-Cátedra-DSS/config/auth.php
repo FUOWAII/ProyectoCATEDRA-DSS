@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'employees' => [
+            'driver' => 'session', // Or another driver you prefer (e.g., session, token)
+            'provider' => 'employees', // Name of the provider defined for employees
+        ],
     ],
 
     /*
@@ -69,6 +74,11 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'employees' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Employees::class,
+        ],
     ],
 
     /*

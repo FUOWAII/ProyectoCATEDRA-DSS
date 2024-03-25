@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\CrudAdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginEmployeesController;
+use App\Http\Controllers\ManageBranchOficceController;
+use Psy\TabCompletion\Matcher\FunctionsMatcher;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +20,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get('/loginemployees', [LoginEmployeesController::class, 'create'])->name('login.employees');
+
+Route::post('/loginemployeespost', [LoginEmployeesController::class, 'store'])->name('login_employee_post');
+
+Route::get('/employeedashboard', function () {
+    return view('administrator.dashboardadmin');
+})->name('admindash');
+
+Route::resource('/brainchoficcem', ManageBranchOficceController::class);
+
+Route::post('logoutemplouees', [LoginEmployeesController::class, 'logout'])->name('logoutemployees');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
