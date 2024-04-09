@@ -1,5 +1,5 @@
 <div>
-    ESTAS LOGUEADO PUTOOOO
+    ESTAS LOGUEADO
 </div>
 
 <a href="{{ route('brainchoficcem.index') }}">Sucursales</a>
