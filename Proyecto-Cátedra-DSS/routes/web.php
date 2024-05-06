@@ -20,8 +20,12 @@ use Psy\TabCompletion\Matcher\FunctionsMatcher;
 */
 
 Route::get('/welcome', function () {
-    return view('welcome');
+    return view('Main.principal');
 })->name('home');
+
+Route::get('panel', function () {
+    return view('Main.menuUsers');
+});
 
 Route::get('/loginemployees', [LoginEmployeesController::class, 'create'])->name('login.employees');
 
@@ -42,7 +46,6 @@ Route::get('/creacioncuenta', function () {
 Route::get('/cuentabancaria', function () {
     return view('cuentabancaria');
 })->name('cuentabancaria');
-
 
 Route::get('/transaccion', function () {
     return view('transaccion');

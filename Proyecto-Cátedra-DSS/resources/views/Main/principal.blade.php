@@ -86,7 +86,7 @@
             </ul>
             <!-- Botón de Inicio de Sesión -->
             <div class="ml-auto">
-    <a href="{{ route('welcome') }}" class="btn btn-primary" style="white-space: nowrap;">Iniciar Sesión</a>
+    <a href="" class="btn btn-primary" style="white-space: nowrap;">Iniciar Sesión</a>
 </div>
     </nav>
 
