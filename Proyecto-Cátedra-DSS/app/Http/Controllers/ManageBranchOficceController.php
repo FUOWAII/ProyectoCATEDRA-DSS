@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employees;
 use Illuminate\Http\Request;
 use App\Models\Branchoffices;
 
@@ -21,10 +22,12 @@ class ManageBranchOficceController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
-        return view('administrator.managebranchofficce.createbranchofficce');
-    }
+{
+    // Obtener los nombres de los empleados que tienen el id 2
+    $empleados = Employees::where('role_id', 2)->pluck('name', 'id')->toArray();
+
+    return view('administrator.managebranchofficce.createbranchofficce', compact('empleados'));
+}
 
     /**
      * Store a newly created resource in storage.

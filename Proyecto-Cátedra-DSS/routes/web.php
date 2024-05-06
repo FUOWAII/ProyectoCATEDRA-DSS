@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AccionesPersonalController;
 use App\Http\Controllers\CrudAdminController;
+use App\Http\Controllers\Detalles;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginEmployeesController;
@@ -72,5 +74,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::get('/acciones-personal', [AccionesPersonalController::class, 'index']);
+Route::put('/acciones-personal/{id}', [AccionesPersonalController::class, 'update'])->name('acciones-personal.update');
+
+Route::get('/detalles', [Detalles::class, 'index'])->name('Detalles.index');
 
 require __DIR__.'/auth.php';
