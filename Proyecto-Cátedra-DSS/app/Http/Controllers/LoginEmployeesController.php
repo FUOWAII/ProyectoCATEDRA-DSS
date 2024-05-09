@@ -16,7 +16,7 @@ class LoginEmployeesController extends Controller
      */
     public function create(): View
     {
-        return view('auth.loginemployees');
+        return view('employees.loginemployees');
     }
 
     public function store(Request $request)
@@ -24,20 +24,45 @@ class LoginEmployeesController extends Controller
         $credentials = $request->except('_token');
 
         if (Auth::guard('employees')->attempt($credentials)) {
-            return redirect()->route('admindash');
+            $user = Auth::guard('employees')->user(); // Obtener el usuario autenticado
+
+            // Almacenar el usuario en la sesión
+            session(['user' => $user]);
+
+            // Redirigir según el role_id del usuario
+            switch ($user->role_id) {
+                case 1:
+                    return redirect()->route('dash.gg');
+                    break;
+                case 2:
+                    return redirect()->route('dash.gs');
+                    break;
+                case 3:
+                    return redirect()->route('dash.uc');
+                    break;
+                case 4:
+                    return redirect()->route('dashboard.role4');
+                    break;
+                case 5:
+                    return redirect()->route('dashboard.role5');
+                    break;
+                default:
+                    // Redirigir a una ruta por defecto si el role_id no coincide
+                    return redirect()->route('login.employees');
+                    break;
+            }
         }
 
         return back()->withErrors([
             'email' => 'Las credenciales proporcionadas son incorrectas.',
         ]);
     }
-
+    
     public function logout(Request $request)
     {
-        Auth::guard('employees')->logout(); // Cierra la sesión con la guardia "employees" o "web"
+        Auth::guard('employees')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login.employees'); // Redirigir a la página de inicio de sesión
+        return redirect()->route('login.employees');
     }
-    
 }

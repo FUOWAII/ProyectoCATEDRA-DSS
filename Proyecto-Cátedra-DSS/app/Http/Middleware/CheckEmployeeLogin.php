@@ -2,16 +2,23 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class CheckEmployeeLogin extends Middleware
+class CheckEmployeeLogin
 {
-    /**
-     * Get the path the user should be redirected to when they are not authenticated.
-     */
-    protected function redirectTo(Request $request): ?string
+    public function handle(Request $request, Closure $next)
     {
-        return $request->expectsJson() ? null : route('login.employees');
+        if (!Auth::guard('employees')->check() && !$this->isLoginRoute($request)) {
+            return redirect()->route('login.employees');
+        }
+
+        return $next($request);
+    }
+
+    private function isLoginRoute($request)
+    {
+        return $request->is('dashboardEmployee') || $request->is('dashboardEmployee/*');
     }
 }

@@ -21,49 +21,33 @@ use Psy\TabCompletion\Matcher\FunctionsMatcher;
 |
 */
 
+Route::get('/', function () {
+    return view('main.welcome');
+})->name('home');
+
 Route::get('/welcome', function () {
-    return view('Main.principal');
+    return view('main.formUsers');
 })->name('home');
 
 Route::get('panel', function () {
-    return view('Main.menuUsers');
+    return view('main.menuUsers');
 });
 
 Route::get('/loginemployees', [LoginEmployeesController::class, 'create'])->name('login.employees');
 
 Route::post('/loginemployeespost', [LoginEmployeesController::class, 'store'])->name('login_employee_post');
 
-Route::get('/employeedashboard', function () {
-    return view('administrator.dashboardadmin');
-})->name('admindash');
+Route::get('/dashboardEmployee/G-G', function () {
+    return view('usuarioGerenteGeneral.dashboardgg');
+})->middleware('check.employee')->name('dash.gg');
+
+Route::get('/dashboardEmployee/E-C', function () {
+    return view('usuarioCajero.welcomeUC');
+})->middleware('check.employee')->name('dash.uc');
 
 Route::resource('/brainchoficcem', ManageBranchOficceController::class);
 
-Route::post('logoutemplouees', [LoginEmployeesController::class, 'logout'])->name('logoutemployees');
-
-Route::get('/creacioncuenta', function () {
-    return view('creacioncuenta');
-})->name('creacioncuenta');
-
-Route::get('/cuentabancaria', function () {
-    return view('cuentabancaria');
-})->name('cuentabancaria');
-
-Route::get('/transaccion', function () {
-    return view('transaccion');
-})->name('transaccion');
-
-Route::get('/ingresodependiente', function () {
-    return view('ingresodependiente');
-})->name('ingresodependiente');
-
-Route::get('/listadependiente', function () {
-    return view('listadependiente');
-})->name('listadependiente');
-
-Route::get('/formulariodependiente', function () {
-    return view('formulariodependiente');
-})->name('formulariodependiente');
+Route::post('logoutemployees', [LoginEmployeesController::class, 'logout'])->name('logoutemployees');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

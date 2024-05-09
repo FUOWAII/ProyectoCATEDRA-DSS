@@ -14,7 +14,7 @@ class ManageBranchOficceController extends Controller
     public function index()
     {
         //
-        $databranchofficceindex['data']=Branchoffices::paginate(5);
+        $databranchofficceindex['data'] = Branchoffices::paginate(5);
         return view('administrator.managebranchofficce.indexbranchofficce', $databranchofficceindex);
     }
 
@@ -22,12 +22,12 @@ class ManageBranchOficceController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-{
-    // Obtener los nombres de los empleados que tienen el id 2
-    $empleados = Employees::where('role_id', 2)->pluck('name', 'id')->toArray();
+    {
+        // Obtener los nombres de los empleados que tienen el id 2
+        $empleados = Employees::where('role_id', 2)->pluck('name', 'id')->toArray();
 
-    return view('administrator.managebranchofficce.createbranchofficce', compact('empleados'));
-}
+        return view('administrator.managebranchofficce.createbranchofficce', compact('empleados'));
+    }
 
     /**
      * Store a newly created resource in storage.
