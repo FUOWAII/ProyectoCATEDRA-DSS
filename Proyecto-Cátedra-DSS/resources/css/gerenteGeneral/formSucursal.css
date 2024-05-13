@@ -1,0 +1,47 @@
+.hola{
+    background-color: rgb(204, 231, 243);
+    margin-left: 50%;
+    width: 100%;
+}
+
+
+
+.caja {
+    padding: auto;
+    background-color: #fff;
+    margin-left: 50%;
+    width: 100%; /* Puedes ajustar el ancho según tus necesidades */
+    max-width: 600px; /* Establece un ancho máximo para que no se extienda demasiado en pantallas grandes */
+    border-radius: 10px; /* Añade bordes redondeados */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+    text-align: center; /* Centra el contenido */
+    padding: 20px; /* Añade un espacio interior */
+    height: 50vh;    
+}
+
+.detalle{
+    background-color: #056a96;
+    width: 880px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 12%;
+    margin-top: 1%;
+}
+
+.holis{
+    background-color: #fff;
+    border-radius: 10px; /* Añade bordes redondeados */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+    margin: 2%;
+    padding: 2%;
+}
+
+
+.info{
+    background-color: #fff;
+    width: 880px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 12%;
+    margin-top: 1%;
+    padding: 5%;
+
+}

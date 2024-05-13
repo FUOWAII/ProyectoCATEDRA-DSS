@@ -59,10 +59,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/acciones-personal', [AccionesPersonalController::class, 'index'])->name('acciones-personal.index');
 
-Route::get('/acciones-personal', [AccionesPersonalController::class, 'index']);
+
 Route::put('/acciones-personal/{id}', [AccionesPersonalController::class, 'update'])->name('acciones-personal.update');
 
 Route::get('/detalles', [Detalles::class, 'index'])->name('Detalles.index');
+
+
+
+
+
+
+Route::get('/success', [ManageBranchOficceController::class, 'success'])->name('success');
+Route::get('/createbranchofficce', [ManageBranchOficceController::class, 'create'])->name('create-branchofficce');
+Route::post('/storebranchofficce', [ManageBranchOficceController::class, 'store'])->name('store-branchofficce');
 
 require __DIR__.'/auth.php';

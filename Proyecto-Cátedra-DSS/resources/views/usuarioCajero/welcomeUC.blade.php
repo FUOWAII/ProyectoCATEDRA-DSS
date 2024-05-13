@@ -1,5 +1,6 @@
 @extends('main.menuUsers')
 
+
 @section('title')
     Cajero | ApexFinance
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 use App\Models\Branchoffices;
+use Illuminate\Support\Facades\Redirect;
 
 class ManageBranchOficceController extends Controller
 {
@@ -14,7 +15,7 @@ class ManageBranchOficceController extends Controller
     public function index()
     {
         //
-        $databranchofficceindex['data'] = Branchoffices::paginate(5);
+        $databranchofficceindex['data'] = Branchoffices::paginate(10);
         return view('administrator.managebranchofficce.indexbranchofficce', $databranchofficceindex);
     }
 
@@ -29,17 +30,32 @@ class ManageBranchOficceController extends Controller
         return view('administrator.managebranchofficce.createbranchofficce', compact('empleados'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
-    {
-        //
-        $databranchofficce = request()->except('_token');
-        Branchoffices::insert($databranchofficce);
+{
+    // Valida y guarda los datos
+    $validatedData = $request->validate([
+        'nombre' => 'required',
+        'dirección' => 'required',
+        'estado' => 'required',
+        'idEncargado' => 'required',
+    ]);
 
-        return response()->json($databranchofficce);
-    }
+    // Crea una nueva sucursal con los datos validados
+    $branchoffice = Branchoffices::create($validatedData);
+
+    // Redirige a la vista de éxito junto con los datos de la sucursal recién creada
+    return redirect()->route('success', ['id' => $branchoffice->id]);
+}
+
+public function success()
+{
+    // Muestra la vista de éxito y pasa los datos de la sucursal
+    return view('administrator.managebranchofficce.success');
+}
+
+
+
 
     /**
      * Remove the specified resource from storage.

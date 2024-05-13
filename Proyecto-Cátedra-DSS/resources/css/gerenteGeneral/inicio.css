@@ -1,0 +1,145 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+article {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Estilos específicos para el contenido */
+#name-user {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#content-panel {
+    margin-top: 20px;
+}
+
+#content-panel article {
+    margin-bottom: 20px;
+}
+
+#content-panel article div {
+    margin-bottom: 10px;
+}
+
+#content-panel form {
+    display: flex;
+    align-items: center;
+}
+
+#content-panel input[type="submit"] {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#content-panel input[type="submit"]:hover {
+    background-color: #c82333;
+}
+
+
+
+
+
+
+
+
+
+
+/* Estilos para los slides */
+.swiper-slide {
+    display: none; /* Oculta todos los slides por defecto */
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Ajusta los márgenes según necesites */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para el slide activo */
+.swiper-slide-active {
+    display: block; /* Muestra el slide activo */
+}
+
+/* Estilos para los slides a la izquierda y derecha del slide activo */
+.swiper-slide-prev,
+.swiper-slide-next {
+    display: none; /* Oculta los slides a la izquierda y derecha por defecto */
+}
+
+/* Estilo para el slide activo, previo y próximo */
+.swiper-slide-prev.swiper-slide-active,
+.swiper-slide-next.swiper-slide-active {
+    display: block; /* Muestra los slides previo y próximo si están activos */
+}
+
+/* Estilos para el contenedor del slider */
+.swiper-container {
+    width: 60%; /* Ocupa el 60% del ancho de la pantalla */
+    height: 400px; /* Altura fija del slider */
+    position: fixed; /* Posición fija */
+    top: 50%; /* Ajusta la posición verticalmente al centro */
+    left: 50%; /* Ajusta la posición horizontalmente al centro */
+    transform: translate(-50%, -50%); /* Centra el contenedor */
+}
+
+/* Estilos para los botones de navegación */
+.swiper-button-next,
+.swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    color: #fff;
+    z-index: 10;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para el botón siguiente */
+.swiper-button-next {
+    right: 10px;
+}
+
+/* Estilos para el botón anterior */
+.swiper-button-prev {
+    left: 10px;
+}
+
+/* Cambia el color del botón al pasar el ratón */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
