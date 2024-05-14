@@ -10,4 +10,9 @@ class WithdrawalAccount extends Model
     protected $fillable = [
         'IdCuenta', 'idUsuario', 'idEncargado', 'cantidadretiro', 'fecha'
     ];
+
+    public function account()
+    {
+        return $this->belongsTo(BankAccount::class, 'IdCuenta');
+    }
 }

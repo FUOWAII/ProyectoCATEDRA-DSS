@@ -15,6 +15,11 @@ class BankAccount extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'IdUsuario'); // Suponiendo que el campo que relaciona BankAccount con User es 'IdUsuario'
+        return $this->belongsTo(User::class, 'IdUsuario');
+    }
+
+    public function withdrawals()
+    {
+        return $this->hasOne(WithdrawalAccount::class, 'IdCuenta');
     }
 }

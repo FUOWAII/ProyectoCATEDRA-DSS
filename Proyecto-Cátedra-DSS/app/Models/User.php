@@ -10,6 +10,13 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+
+    public function bankAccounts()
+    {
+        return $this->hasMany(BankAccount::class, 'IdUsuario');
+    }
+
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**

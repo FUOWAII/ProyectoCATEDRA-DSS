@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('lendings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('IdCuenta')->constrained('bankaccounts')->onDelete('cascade');
-            $table->foreignId('idUsuario')->constrained('users')->onDelete('cascade');
-            $table->foreignId('idEncargado')->constrained('employees')->onDelete('cascade');
+            $table->foreignId('IdCliente')->constrained('users')->onDelete('cascade');
             $table->decimal('montoPrestado', 10, 2);
-            $table->text('descripcción');
+            $table->integer('intereses');
             $table->date('fechaPréstamo');
-            $table->decimal('montoPagoCuotas', 10, 2);
-            $table->enum('estadoPagoPrestamo', ['Pagado', 'Pendiente'])->default('Pendiente');
+            $table->decimal('sueldo_cliente', 10, 2);
+            $table->decimal('abono_mensual', 10, 2);
             $table->timestamps();
         });
     }

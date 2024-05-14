@@ -9,6 +9,7 @@
     <link rel="icon" href="{{ Vite::asset('resources/img/favicon.png') }}">
     <title>@yield('title')</title>
     @vite(['resources/css/main/menuUsers.css', 'resources/js/main/menuUsers.js'])
+    @yield('resources_css/js')
 </head>
 
 <body>
@@ -16,9 +17,9 @@
     <header class="page-header">
         <nav>
             <a href="#0" style="margin: auto;" aria-label="forecastr logo" class="logo">
-                <img class="image-logoo" style="height: 70px; margin-left: 10px; margin-bottom: -7px;"
+                <img class="image-logoo" style="height: 70px; margin-left: 5px; margin-bottom: -7px;"
                     src="{{ Vite::asset('resources/img/logo.png') }}" alt="logo">
-                <h1 style="margin-bottom: -25px;">ApexFinance</h1>
+                <h1 style="margin-bottom: -25px; margin-top: 15px; font-size: 20px;">ApexFinance</h1>
             </a>
             <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
                 <svg width="20" height="20" aria-hidden="true">
@@ -34,12 +35,6 @@
 
                 <li class="menu-heading">
                     <h3>Configuración</h3>
-                </li>
-                <li>
-                    <a href="#0">
-                        <i class="fa-solid fa-wrench" style="margin: 0 10px 0 0px"></i>
-                        <span>Sobre mí</span>
-                    </a>
                 </li>
 
                 @yield('logout-button')

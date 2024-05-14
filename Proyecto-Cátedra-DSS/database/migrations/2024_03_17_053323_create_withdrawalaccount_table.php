@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('withdrawalaccount', function (Blueprint $table) {
             $table->id();
             $table->foreignId('IdCuenta')->constrained('bankaccounts')->onDelete('cascade');
-            $table->foreignId('idUsuario')->constrained('users')->onDelete('cascade');
-            $table->foreignId('idEncargado')->constrained('employees')->onDelete('cascade');
-            $table->decimal('cantidadretiro', 10, 2);
+            $table->string('persona_retiro_bancario');
+            $table->decimal('cantidad_retiro', 10, 2);
             $table->date('fecha');
             $table->timestamps();
         });

@@ -1,0 +1,86 @@
+article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 12em !important;
+}
+
+article h1{
+    font-size: 1.25em;
+}
+
+article h4{
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.text-welcome {
+    height: 14em !important;
+}
+
+.text-welcome h1{
+    font-size: 2em;
+}
+
+.text-welcome h1 b{
+    color: blue;
+}
+
+.text-welcome h4{
+    font-size: 1.15em;
+}
+
+.special {
+    --color: #0077ff;
+    font-family: inherit;
+    display: inline-block;
+    width: 6em;
+    height: 2.6em;
+    line-height: 2.5em;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 6px;
+    font-size: 17px;
+    z-index: 1;
+    color: var(--color);
+    border: 2px solid var(--color);
+    border-radius: 6px;
+    position: relative;
+}
+
+.special::before {
+    position: absolute;
+    content: "";
+    background: var(--color);
+    width: 150px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.special:hover {
+    color: white;
+}
+
+.special:before {
+    top: 100%;
+    left: 100%;
+    transition: 0.3s all;
+}
+
+.special:hover::before {
+    top: -30px;
+    left: -30px;
+}
+
+.form-article{
+    height: auto !important;
+    padding: 3em 0;
+}
+
+.form-article form{
+    width: 85% !important;
+}
+
+
